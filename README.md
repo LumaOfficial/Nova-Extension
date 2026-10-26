@@ -45,3 +45,4 @@ Nova requests only `activeTab`, `scripting`, and `sidePanel`. Page content and q
 ## Easter egg and development
 
 Tap Nova’s star at the top five times. No build, dependencies, API keys, provider accounts, or backend are needed. After editing, click **Reload** at `chrome://extensions`.
+ 
