@@ -1,12 +1,12 @@
 # Nova — Browser Sidekick + Study Buddy
 
-Nova is an independent Chrome Manifest V3 extension. It combines private browser actions with a small offline study helper aimed at common elementary-school (roughly 4th-grade) questions.
+Nova is an independent Chrome Manifest V3 extension. It combines private browser actions with a small offline study helper covering common school questions across many subjects.
 
 ## How the study helper works
 
-Nova has **not been trained as a machine-learning model**. Its school helper is a collection of hand-written explanations, pattern matching, and a small arithmetic parser included in `src/tutor.js`. It answers common greetings, arithmetic expressions, and selected science, reading, and grammar questions. The arithmetic parser handles basic operations and parentheses without using `eval`. If Nova has no matching lesson, it says so rather than making up an answer. There is no API key, provider account, cloud model call, or paid inference requirement.
+Nova has **not been trained as a machine-learning model**. Its school helper is a collection of hand-written explanations, pattern matching, and a small arithmetic parser included in `src/knowledge.js`. It answers common greetings, arithmetic expressions, and questions across math, language arts, science, geography, history, civics, computers, economics, health, the arts, and study skills. The arithmetic parser handles basic operations and parentheses without using `eval`. If Nova has no matching lesson, it says so rather than making up an answer. There is no API key, provider account, cloud model call, or paid inference requirement.
 
-The lessons are intentionally introductory—not a complete fourth-grade curriculum or a replacement for a teacher. The rules can be expanded by editing the tutor knowledge file. Chrome’s optional built-in on-device language model may help answer some other questions when the browser exposes it; availability varies, and Nova’s fixed lessons work without it.
+The lessons are intentionally concise—not a complete curriculum or a replacement for a teacher. The library can be expanded by editing `src/knowledge.js`. Chrome’s optional built-in on-device language model may help answer some other questions when the browser exposes it; availability varies, and Nova’s fixed lessons work without it.
 
 ## Try asking
 
@@ -16,7 +16,11 @@ The lessons are intentionally introductory—not a complete fourth-grade curricu
 
 - “What is photosynthesis?” / “Explain the water cycle”
 
-- “What is a noun?” / “What is a synonym?”
+- “What is a fraction?” / “What is a prime number?”
+
+- “What is a noun?” / “What is a synonym?” / “What is a metaphor?”
+
+- “Who was Abraham Lincoln?” / “What are the three branches of government?”
 
 - “Fix grammar: they is going to the park”
 
@@ -30,7 +34,7 @@ Nova also understands a small set of direct commands: `Summarize this page`, `Fi
 
 ## Install
 
-1. Unzip `nova-extension.zip`.
+1. Unzip `nova-extension-1.6.0.zip`.
 
 1. Open `chrome://extensions` in Chrome and enable **Developer mode**.
 
