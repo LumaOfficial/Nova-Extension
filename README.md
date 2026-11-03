@@ -2,7 +2,15 @@
 
 Nova is an independent Chrome Manifest V3 extension. It pairs private browser tools with a local reasoning engine: 186 curated study notes, a real calculator, unit and date converters, quizzes with XP and streaks, text utilities, a phrasebook and a command palette.
 
-**Version 2.0.0** — build the package from `nova-extension-2.0.0.zip`.
+**Version 2.1.0** — build the package from `nova-extension-2.1.0.zip`.
+
+## What is new in 2.1
+
+- **Nova Search** (`src/search.html`) — a private search page. No cookies, no device storage, no analytics or third-party scripts, no autocomplete beacons, and the query is never written to the address bar.
+- **A privacy ledger you can audit** — it lists every request the page makes, with the query itself left out of the record, and counts the cookies and storage entries Nova Search wrote (always zero).
+- **Clean links** — `utm_*`, `fbclid`, `gclid` and similar tracking parameters are stripped from every result URL before you click, and redirectors are unwrapped.
+- **Sources you can see** — Wikipedia results and DuckDuckGo instant answers, plus an **Offline only** mode that answers from the bundled 186 notes with zero network requests.
+- **Burn session** — wipes the in-memory session on demand. Nothing was stored to begin with.
 
 ## What is new in 2.0
 
@@ -39,14 +47,14 @@ Chrome's optional built-in on-device model handles open-ended questions when the
 
 ## Install
 
-1. Unzip `nova-extension-2.0.0.zip`.
+1. Unzip `nova-extension-2.1.0.zip`.
 2. Open `chrome://extensions` in Chrome and enable **Developer mode**.
 3. Select **Load unpacked** and choose the extracted folder containing `manifest.json`.
 4. Open a regular webpage and click Nova's toolbar button (or press `Ctrl+Shift+Y`).
 
 ## Privacy and limits
 
-Nova requests `activeTab`, `scripting`, `sidePanel` and `storage`. Page content is read only when you ask for it. Questions, quiz scores and streaks stay on the device. It is not a general-purpose trained model: its answers come from the curated notes and the deterministic skills above, so unfamiliar wording, advanced proofs and open-ended writing may go beyond it. Chrome's built-in model depends on Chrome/device support.
+Nova requests `activeTab`, `scripting`, `sidePanel` and `storage`. Page content is read only when you ask for it. Questions, quiz scores and streaks stay on the device. Nova Search sends a query only to the source you pick (Wikipedia or DuckDuckGo instant answers), with no cookie and no referrer, and keeps no history after the page closes. It is not a general-purpose trained model: its answers come from the curated notes and the deterministic skills above, so unfamiliar wording, advanced proofs and open-ended writing may go beyond it. Chrome's built-in model depends on Chrome/device support.
 
 ## Easter egg and development
 

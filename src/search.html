@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- Nova Search never sends a referrer and never loads remote assets. -->
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#131219">
+  <title>Nova Search — private search</title>
+  <link rel="stylesheet" href="search.css">
+</head>
+<body>
+  <a class="ns-skip" href="#nsResults">Skip to results</a>
+
+  <header class="ns-topbar">
+    <a class="ns-brand" href="panel.html" title="Back to Nova">
+      <span class="ns-logo" aria-hidden="true">✦</span>
+      <span class="ns-wordmark"><strong>nova search</strong><small>NO TRACE · NO ACCOUNT · NO COOKIES</small></span>
+    </a>
+    <div class="ns-topbar-actions">
+      <span class="ns-shield" id="nsShield" title="Requests are limited to the sources listed below">
+        <i aria-hidden="true"></i><span>shield on</span>
+      </span>
+      <button class="ns-ghost" id="nsBurn" type="button" title="Erase this session from memory">Burn session</button>
+      <a class="ns-ghost" href="panel.html">Back to Nova</a>
+    </div>
+  </header>
+
+  <main class="ns-main">
+    <section class="ns-hero" aria-labelledby="nsTitle">
+      <div class="ns-orb" aria-hidden="true"><span>✦</span></div>
+      <h1 id="nsTitle">Nova Search</h1>
+      <p class="ns-tagline">The search page that cannot remember you.</p>
+
+      <form class="ns-form" id="nsForm" role="search" autocomplete="off">
+        <label class="ns-visually-hidden" for="nsQuery">Search the web privately</label>
+        <span class="ns-form-icon" aria-hidden="true">⌕</span>
+        <input id="nsQuery" name="q" type="search" enterkeyhint="search" spellcheck="false"
+               placeholder="Search privately — or type !offline for zero-network results" aria-describedby="nsHint">
+        <button class="ns-submit" type="submit">Search</button>
+      </form>
+
+      <div class="ns-chips" role="group" aria-label="Search sources">
+        <button type="button" class="ns-chip" data-mode="all" aria-pressed="true">All sources</button>
+        <button type="button" class="ns-chip" data-mode="offline" aria-pressed="false">Offline only</button>
+        <button type="button" class="ns-chip" data-mode="wiki" aria-pressed="false">Wikipedia</button>
+        <button type="button" class="ns-chip" data-mode="instant" aria-pressed="false">Instant answers</button>
+      </div>
+
+      <p class="ns-hint" id="nsHint">0 cookies · 0 device storage · no autocomplete beacons · query never written to the address bar.</p>
+
+      <div class="ns-history" id="nsHistory" hidden>
+        <span class="ns-history-label">This session</span>
+        <div class="ns-history-chips" id="nsHistoryChips"></div>
+      </div>
+    </section>
+
+    <section class="ns-ledger" aria-labelledby="nsLedgerTitle">
+      <div class="ns-ledger-head">
+        <h2 id="nsLedgerTitle">Privacy ledger</h2>
+        <button class="ns-link" id="nsLedgerToggle" type="button" aria-expanded="false" aria-controls="nsLedgerBody">Show request log</button>
+      </div>
+      <dl class="ns-stats">
+        <div class="ns-stat"><dt>Cookies set</dt><dd id="nsStatCookies">0</dd></div>
+        <div class="ns-stat"><dt>Storage written</dt><dd id="nsStatStorage">0</dd></div>
+        <div class="ns-stat"><dt>Requests sent</dt><dd id="nsStatRequests">0</dd></div>
+        <div class="ns-stat"><dt>Domains contacted</dt><dd id="nsStatDomains">0</dd></div>
+        <div class="ns-stat"><dt>Trackers stripped</dt><dd id="nsStatStripped">0</dd></div>
+        <div class="ns-stat"><dt>Offline notes</dt><dd id="nsStatNotes">—</dd></div>
+      </dl>
+      <p class="ns-pre" id="nsLedgerPre" hidden></p>
+      <div class="ns-ledger-body" id="nsLedgerBody" hidden>
+        <p class="ns-ledger-copy">Every network request this page makes, with the query itself omitted from the record.</p>
+        <ul class="ns-log" id="nsLog"><li class="ns-log-empty">Nothing has left your device yet.</li></ul>
+      </div>
+    </section>
+
+    <section class="ns-results" id="nsResults" aria-live="polite" aria-busy="false">
+      <div class="ns-empty" id="nsEmpty">
+        <p class="ns-empty-title">Nothing searched yet</p>
+        <p class="ns-empty-copy">Results come from a short source list you can inspect above. No profile is built, nothing is saved after you close this page, and links are cleaned of tracking parameters before you click.</p>
+        <div class="ns-examples" id="nsExamples"></div>
+      </div>
+      <div class="ns-status" id="nsStatus" hidden></div>
+      <article class="ns-answer" id="nsAnswer" hidden></article>
+      <div class="ns-local" id="nsLocal" hidden></div>
+      <ol class="ns-list" id="nsList"></ol>
+      <p class="ns-results-foot" id="nsResultsFoot" hidden></p>
+    </section>
+  </main>
+
+  <footer class="ns-footer">
+    <span>Local front end · no analytics · no third-party scripts</span>
+    <span>Sources: Wikipedia · DuckDuckGo Instant Answers · bundled Nova notes</span>
+  </footer>
+
+  <div class="ns-toast" id="nsToast" role="status" hidden></div>
+  <script type="module" src="search.js"></script>
+</body>
+</html>
